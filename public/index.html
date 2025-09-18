@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GrowthOS - Growth in a Box</title>
+    <meta name="description" content="Analytics, A/B tests & referrals for indie hackers. Stop burning weeks on plumbing - get growth in 30 minutes.">
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="GrowthOS - Growth in a Box">
+    <meta property="og:description" content="Analytics, A/B tests & referrals for indie hackers. Get trusted data + experiments in <30 minutes.">
+    <meta property="og:image" content="https://growthos.dev/og-image.png">
+    <meta property="og:url" content="https://growthos.dev">
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="GrowthOS - Growth in a Box">
+    <meta name="twitter:description" content="Analytics, A/B tests & referrals for indie hackers. Get trusted data + experiments in <30 minutes.">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        header {
+            padding: 20px 0;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: white;
+        }
+
+        .github-link {
+            color: white;
+            text-decoration: none;
+            padding: 8px 16px;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            border-radius: 6px;
+            transition: background 0.2s;
+        }
+
+        .github-link:hover {
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        .hero {
+            text-align: center;
+            padding: 80px 0;
+            color: white;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            font-weight: 700;
+        }
+
+        .hero .subtitle {
+            font-size: 1.5rem;
+            margin-bottom: 40px;
+            opacity: 0.9;
+        }
+
+        .cta-buttons {
+            margin: 40px 0;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 16px 32px;
+            margin: 0 10px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+        }
+
+        .btn-primary {
+            background: #fff;
+            color: #667eea;
+        }
+
+        .btn-secondary {
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+
+        .terminal {
+            background: #1a1a1a;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 40px auto;
+            max-width: 600px;
+            font-family: 'Monaco', 'Courier New', monospace;
+            color: #00ff00;
+            text-align: left;
+        }
+
+        .terminal-header {
+            display: flex;
+            margin-bottom: 15px;
+        }
+
+        .terminal-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            margin-right: 8px;
+        }
+
+        .dot-red { background: #ff5f56; }
+        .dot-yellow { background: #ffbd2e; }
+        .dot-green { background: #27ca3f; }
+
+        .features {
+            background: white;
+            padding: 80px 0;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+            margin-top: 60px;
+        }
+
+        .feature {
+            text-align: center;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .feature-icon {
+            font-size: 3rem;
+            margin-bottom: 20px;
+        }
+
+        .feature h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: #333;
+        }
+
+        .waitlist {
+            background: #f8f9fa;
+            padding: 80px 0;
+            text-align: center;
+        }
+
+        .waitlist-form {
+            max-width: 400px;
+            margin: 0 auto;
+        }
+
+        .waitlist-form input {
+            width: 100%;
+            padding: 16px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            font-size: 16px;
+            margin-bottom: 20px;
+        }
+
+        .waitlist-form button {
+            width: 100%;
+            padding: 16px;
+            background: #667eea;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+
+        .waitlist-form button:hover {
+            background: #5a6fd8;
+        }
+
+        footer {
+            background: #333;
+            color: white;
+            text-align: center;
+            padding: 40px 0;
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero .subtitle {
+                font-size: 1.2rem;
+            }
+
+            .btn {
+                display: block;
+                margin: 10px auto;
+                max-width: 280px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="container">
+            <div class="logo">📈 GrowthOS</div>
+            <a href="https://github.com/adityash8/growthos" class="github-link">GitHub</a>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <div class="container">
+            <h1>Growth in a Box</h1>
+            <p class="subtitle">Analytics, A/B tests & referrals for indie hackers.<br>Stop burning weeks on plumbing.</p>
+
+            <div class="terminal">
+                <div class="terminal-header">
+                    <div class="terminal-dot dot-red"></div>
+                    <div class="terminal-dot dot-yellow"></div>
+                    <div class="terminal-dot dot-green"></div>
+                </div>
+                <div>$ npx growthos audit username/repo --share<br>
+🔍 Scanning repo for growth opportunities...<br>
+✅ Growth Score: 42/100<br>
+📊 Missing 4 critical events<br>
+🚀 Fix with: npx growthos init</div>
+            </div>
+
+            <div class="cta-buttons">
+                <a href="#waitlist" class="btn btn-primary">Join Waitlist</a>
+                <a href="https://github.com/adityash8/growthos" class="btn btn-secondary">Try CLI Beta</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="features">
+        <div class="container">
+            <h2 style="text-align: center; font-size: 2.5rem; margin-bottom: 20px;">Why Indies Love GrowthOS</h2>
+            <p style="text-align: center; font-size: 1.2rem; color: #666; max-width: 600px; margin: 0 auto;">
+                Every weekend warrior burns 2-4 weeks setting up analytics. We give you trusted data + experiments in 30 minutes.
+            </p>
+
+            <div class="features-grid">
+                <div class="feature">
+                    <div class="feature-icon">🎯</div>
+                    <h3>Anti-Vanity SDK</h3>
+                    <p>Auto-rejects page_view noise. Hardcoded focus on signup, payment, activation events that actually matter.</p>
+                </div>
+
+                <div class="feature">
+                    <div class="feature-icon">🔍</div>
+                    <h3>Free Growth Audit</h3>
+                    <p>Scan any GitHub repo for missing events. Get shareable score + viral discovery loop.</p>
+                </div>
+
+                <div class="feature">
+                    <div class="feature-icon">🧪</div>
+                    <h3>Instant A/B Tests</h3>
+                    <p>Feature flags + PostHog bridge in 5 minutes. No engineering needed.</p>
+                </div>
+
+                <div class="feature">
+                    <div class="feature-icon">📊</div>
+                    <h3>Business Dashboards</h3>
+                    <p>Pre-built activation, retention, revenue metrics. No vanity allowed.</p>
+                </div>
+
+                <div class="feature">
+                    <div class="feature-icon">🔗</div>
+                    <h3>Referral Engine</h3>
+                    <p>QR codes, tracking, commission exports. Turn users into growth loops.</p>
+                </div>
+
+                <div class="feature">
+                    <div class="feature-icon">🤖</div>
+                    <h3>AI Growth Doctor</h3>
+                    <p>Daily Slack pings: "15% drop-off detected. Try this CTA change."</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="waitlist" id="waitlist">
+        <div class="container">
+            <h2 style="font-size: 2.5rem; margin-bottom: 20px;">Ship Growth, Not Plumbing</h2>
+            <p style="font-size: 1.2rem; color: #666; margin-bottom: 40px;">
+                Join 500+ indie hackers getting early access to GrowthOS.<br>
+                Launch with trusted analytics in 30 minutes, not 30 days.
+            </p>
+
+            <form class="waitlist-form" action="https://submit-form.com/your-form-id" method="POST">
+                <input type="email" name="email" placeholder="your@email.com" required>
+                <input type="text" name="project" placeholder="What are you building?" required>
+                <button type="submit">Get Early Access</button>
+            </form>
+
+            <p style="margin-top: 20px; color: #999; font-size: 14px;">
+                ✅ Free forever tier • ✅ No credit card • ✅ 30-day money-back guarantee
+            </p>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 GrowthOS. Built for indie hackers, by indie hackers.</p>
+            <p style="margin-top: 10px;">
+                <a href="https://twitter.com/growthos" style="color: #667eea; text-decoration: none;">Twitter</a> •
+                <a href="https://github.com/adityash8/growthos" style="color: #667eea; text-decoration: none;">GitHub</a> •
+                <a href="mailto:hello@growthos.dev" style="color: #667eea; text-decoration: none;">Contact</a>
+            </p>
+        </div>
+    </footer>
+
+    <script>
+        // Track page view with our own tool (dogfooding!)
+        if (typeof growthos !== 'undefined') {
+            growthos.track('landing_page_view', {
+                source: document.referrer || 'direct',
+                page: 'home'
+            });
+        }
+
+        // Form submission tracking
+        document.querySelector('.waitlist-form').addEventListener('submit', function() {
+            if (typeof growthos !== 'undefined') {
+                growthos.track('waitlist_signup', {
+                    source: 'landing_page'
+                });
+            }
+        });
+    </script>
+</body>
+</html>
